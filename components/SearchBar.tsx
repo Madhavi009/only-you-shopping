@@ -25,7 +25,7 @@ export default function SearchBar({
           className="flex-1 px-4 py-3 outline-none"
         />
 
-        <button className="bg-slate-900 text-white px-4 py-3">
+        <button className="px-4 text-gray-500">
           <Search size={20} />
         </button>
 

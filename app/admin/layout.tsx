@@ -13,7 +13,7 @@ export default function AdminLayout({
   const pathname = usePathname();
 
   const [showSidebar, setShowSidebar] =
-    useState(true);
+    useState(false);
 
   const hideSidebar =
     pathname === "/admin/login" ||
