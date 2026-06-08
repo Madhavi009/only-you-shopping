@@ -54,18 +54,19 @@ export default function CartPage() {
   return (
     <div className="min-h-screen bg-gray-100">
 
-      <div className="max-w-7xl mx-auto p-8">
+      <div className="max-w-7xl mx-auto p-4 md:p-8">
 
-        <h1 className="text-5xl font-bold mb-8">
+        <h1 className="text-3xl md:text-5xl font-bold mb-8">
           Shopping Cart
         </h1>
 
-        <div className="bg-white rounded-xl shadow overflow-hidden">
+        <div className="bg-white rounded-xl shadow overflow-x-auto">
 
-          <table className="w-full">
+          <table className="w-full min-w-[700px]">
 
             <thead>
               <tr className="border-b bg-gray-50">
+
                 <th className="p-4 text-left">
                   Image
                 </th>
@@ -89,6 +90,7 @@ export default function CartPage() {
                 <th className="p-4 text-left">
                   Action
                 </th>
+
               </tr>
             </thead>
 
@@ -99,11 +101,12 @@ export default function CartPage() {
                   key={item.id}
                   className="border-b"
                 >
+
                   <td className="p-4">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-20 h-20 object-cover rounded-lg"
+                      className="w-16 h-16 md:w-20 md:h-20 object-cover rounded-lg"
                     />
                   </td>
 
@@ -152,9 +155,7 @@ export default function CartPage() {
                   </td>
 
                   <td className="p-4 font-semibold">
-                    ₹
-                    {item.price *
-                      item.quantity}
+                    ₹{item.price * item.quantity}
                   </td>
 
                   <td className="p-4">
@@ -169,6 +170,7 @@ export default function CartPage() {
                     </button>
 
                   </td>
+
                 </tr>
               ))}
 
@@ -189,14 +191,17 @@ export default function CartPage() {
 
         </div>
 
-        <div className="bg-white shadow rounded-xl p-6 mt-6 flex justify-between items-center">
+        <div className="bg-white shadow rounded-xl p-6 mt-6 flex flex-col md:flex-row gap-4 justify-between items-center">
 
-          <h2 className="text-3xl font-bold">
+          <h2 className="text-2xl md:text-3xl font-bold">
             Total: ₹{total}
           </h2>
 
-          <a href="/checkout">
-            <button className="bg-[#081534] hover:bg-slate-800 text-white px-8 py-3 rounded-lg">
+          <a
+            href="/checkout"
+            className="w-full md:w-auto"
+          >
+            <button className="w-full md:w-auto bg-[#081534] hover:bg-slate-800 text-white px-8 py-3 rounded-lg">
               Proceed To Checkout
             </button>
           </a>
