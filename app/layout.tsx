@@ -1,5 +1,6 @@
 import "./globals.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
+import ServiceWorker from "@/components/ServiceWorker";
 
 export const metadata = {
   title: "Only You Shopping",
@@ -15,6 +16,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <ServiceWorker />
+
         <LayoutWrapper>
           {children}
         </LayoutWrapper>
