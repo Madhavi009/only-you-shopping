@@ -33,13 +33,13 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-slate-200 flex items-center justify-center p-3 md:p-6">
+    <div className="h-screen overflow-hidden bg-gradient-to-br from-slate-100 via-white to-slate-200 flex items-center justify-center p-4">
 
-      <div className="w-full max-w-6xl bg-white rounded-[30px] shadow-2xl overflow-hidden grid lg:grid-cols-2">
+      <div className="w-full max-w-5xl bg-white rounded-[28px] shadow-2xl overflow-hidden grid lg:grid-cols-2">
 
         {/* LEFT SIDE */}
         <div
-          className="hidden lg:flex relative min-h-[550px] bg-cover bg-center items-center"
+          className="hidden lg:flex relative h-[520px] bg-cover bg-center items-center"
           style={{
             backgroundImage: "url('/image.png')",
           }}
@@ -48,15 +48,15 @@ export default function LoginPage() {
 
           <div className="relative z-10 px-10 text-white">
 
-            <p className="uppercase tracking-[6px] text-pink-300 text-xs font-semibold">
+            <p className="uppercase tracking-[5px] text-pink-300 text-xs font-semibold">
               Welcome Back
             </p>
 
-            <h1 className="text-4xl xl:text-5xl font-extrabold mt-4">
+            <h1 className="text-5xl font-extrabold mt-4">
               Only You
             </h1>
 
-            <p className="text-base mt-5 text-gray-200 max-w-md">
+            <p className="text-base mt-5 text-gray-200 max-w-sm leading-relaxed">
               Shop Premium Fashion, Beauty, Electronics and Lifestyle
               Collections.
             </p>
@@ -65,11 +65,11 @@ export default function LoginPage() {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="p-6 md:p-8 lg:p-10 flex flex-col justify-center">
+        <div className="p-6 lg:p-8 flex flex-col justify-center">
 
-          <div className="mb-6">
+          <div className="mb-5">
 
-            <h1 className="text-4xl font-extrabold text-slate-900">
+            <h1 className="text-5xl font-extrabold text-slate-900">
               Sign In
             </h1>
 
@@ -120,7 +120,7 @@ export default function LoginPage() {
 
                 <button
                   type="button"
-                  className="text-pink-500 text-sm"
+                  className="text-pink-500 text-sm hover:underline"
                 >
                   Forgot Password?
                 </button>
@@ -166,7 +166,7 @@ export default function LoginPage() {
 
           </form>
 
-          <div className="mt-6 text-center">
+          <div className="mt-5 text-center">
 
             <p className="text-gray-600 text-sm">
               Don't have an account?

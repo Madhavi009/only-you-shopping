@@ -9,29 +9,23 @@ export default function RegisterPage() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] =
-    useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const [loading, setLoading] =
-    useState(false);
-
-  async function registerUser(
-    e: React.FormEvent
-  ) {
+  async function registerUser(e: React.FormEvent) {
     e.preventDefault();
 
     setLoading(true);
 
-    const { error } =
-      await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            name,
-          },
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          name,
         },
-      });
+      },
+    });
 
     setLoading(false);
 
@@ -40,66 +34,59 @@ export default function RegisterPage() {
       return;
     }
 
-    alert(
-      "Registration Successful 🎉 Please Login"
-    );
-
+    alert("Registration Successful 🎉 Please Login");
     router.push("/auth/login");
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-white to-purple-100 flex items-center justify-center p-6">
+    <div className="h-screen overflow-hidden bg-gradient-to-br from-pink-100 via-white to-purple-100 flex items-center justify-center p-4">
 
-      <div className="w-full max-w-6xl bg-white rounded-[40px] shadow-2xl overflow-hidden grid lg:grid-cols-2">
+      <div className="w-full max-w-5xl bg-white rounded-[28px] shadow-2xl overflow-hidden grid lg:grid-cols-2">
 
         {/* LEFT SIDE */}
         <div
-          className="hidden lg:flex relative bg-cover bg-center items-center"
+          className="hidden lg:flex relative h-[520px] bg-cover bg-center items-center"
           style={{
-            backgroundImage:
-              "url('/image.png')",
+            backgroundImage: "url('/image.png')",
           }}
         >
-          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-black/60"></div>
 
-          <div className="relative z-10 px-12 text-white">
+          <div className="relative z-10 px-10 text-white">
 
-            <p className="uppercase tracking-[8px] text-pink-300 text-sm font-semibold">
+            <p className="uppercase tracking-[5px] text-pink-300 text-xs font-semibold">
               Join Only You
             </p>
 
-            <h1 className="text-6xl font-extrabold mt-4 leading-tight">
+            <h1 className="text-5xl font-extrabold mt-4">
               Create Account
             </h1>
 
-            <p className="text-xl mt-6 text-gray-200">
-              Discover Fashion, Beauty,
-              Electronics and Lifestyle
-              Products.
+            <p className="text-base mt-5 text-gray-200 max-w-sm leading-relaxed">
+              Discover Fashion, Beauty, Electronics and Lifestyle Collections.
             </p>
 
           </div>
-
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="p-8 md:p-14">
+        <div className="p-6 lg:p-8 flex flex-col justify-center">
 
-          <div className="mb-10">
+          <div className="mb-5">
 
-            <h1 className="text-5xl font-extrabold">
+            <h1 className="text-5xl font-extrabold text-slate-900">
               Register
             </h1>
 
-            <p className="text-gray-500 mt-3">
+            <p className="text-gray-500 mt-2 text-sm">
               Create your shopping account
             </p>
 
           </div>
 
-          <form onSubmit={registerUser}>
+          <form onSubmit={registerUser} className="space-y-4">
 
-            <div className="mb-5">
+            <div>
 
               <label className="block text-sm font-semibold text-gray-600 mb-2">
                 Full Name
@@ -109,14 +96,12 @@ export default function RegisterPage() {
                 type="text"
                 placeholder="Enter Full Name"
                 value={name}
-                onChange={(e) =>
-                  setName(e.target.value)
-                }
+                onChange={(e) => setName(e.target.value)}
                 className="
                 w-full
                 bg-slate-100
-                p-4
-                rounded-2xl
+                p-3
+                rounded-xl
                 outline-none
                 border
                 border-transparent
@@ -127,7 +112,7 @@ export default function RegisterPage() {
 
             </div>
 
-            <div className="mb-5">
+            <div>
 
               <label className="block text-sm font-semibold text-gray-600 mb-2">
                 Email Address
@@ -137,14 +122,12 @@ export default function RegisterPage() {
                 type="email"
                 placeholder="Enter Email"
                 value={email}
-                onChange={(e) =>
-                  setEmail(e.target.value)
-                }
+                onChange={(e) => setEmail(e.target.value)}
                 className="
                 w-full
                 bg-slate-100
-                p-4
-                rounded-2xl
+                p-3
+                rounded-xl
                 outline-none
                 border
                 border-transparent
@@ -155,7 +138,7 @@ export default function RegisterPage() {
 
             </div>
 
-            <div className="mb-6">
+            <div>
 
               <label className="block text-sm font-semibold text-gray-600 mb-2">
                 Password
@@ -165,14 +148,12 @@ export default function RegisterPage() {
                 type="password"
                 placeholder="Create Password"
                 value={password}
-                onChange={(e) =>
-                  setPassword(e.target.value)
-                }
+                onChange={(e) => setPassword(e.target.value)}
                 className="
                 w-full
                 bg-slate-100
-                p-4
-                rounded-2xl
+                p-3
+                rounded-xl
                 outline-none
                 border
                 border-transparent
@@ -190,10 +171,9 @@ export default function RegisterPage() {
               w-full
               bg-black
               text-white
-              py-4
-              rounded-2xl
+              py-3
+              rounded-xl
               font-bold
-              tracking-wide
               hover:bg-gray-900
               transition
               "
@@ -205,21 +185,15 @@ export default function RegisterPage() {
 
           </form>
 
-          <div className="mt-8 text-center">
+          <div className="mt-5 text-center">
 
-            <p className="text-gray-600">
+            <p className="text-gray-600 text-sm">
               Already have an account?
             </p>
 
             <a
               href="/auth/login"
-              className="
-              inline-block
-              mt-2
-              text-pink-600
-              font-bold
-              hover:underline
-              "
+              className="inline-block mt-2 text-pink-600 font-bold hover:underline"
             >
               Login Now
             </a>
