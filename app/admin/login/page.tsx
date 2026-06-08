@@ -19,9 +19,9 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-600/70 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-slate-600/70 flex items-center justify-center p-4">
 
-      <div className="w-full max-w-6xl bg-white rounded-[50px] overflow-hidden shadow-2xl flex">
+      <div className="w-full max-w-5xl bg-white rounded-[30px] overflow-hidden shadow-2xl flex">
 
         {/* LEFT SIDE */}
         <div
@@ -32,114 +32,104 @@ export default function AdminLoginPage() {
         >
           <div className="absolute inset-0 bg-black/40"></div>
 
-          <div className="absolute top-14 left-14 z-10">
-
-            <h1 className="text-white text-7xl font-black leading-none">
+          <div className="absolute top-10 left-10 z-10">
+            <h1 className="text-white text-5xl font-black leading-tight">
               THE
               <br />
-
               <span className="text-pink-500">
                 BOUTIQUE
               </span>
-
               <br />
               EXPERIENCE.
             </h1>
-
           </div>
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="w-full lg:w-1/2 p-10 md:p-16 relative">
+        <div className="w-full lg:w-1/2 p-8 md:p-12 relative">
 
-          <button
-            className="absolute top-8 right-8 text-gray-300 text-4xl"
-          >
+          <button className="absolute top-6 right-6 text-gray-300 text-3xl">
             ×
           </button>
 
-          <h1 className="text-6xl font-black text-slate-900 mb-12">
+          <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-8">
             SIGN IN
           </h1>
 
-          <div>
+          <p className="text-xs font-bold uppercase text-slate-400 mb-2">
+            Email
+          </p>
 
-            <p className="text-xs font-bold uppercase text-slate-400 mb-2">
-              Email
+          <input
+            type="email"
+            placeholder="Admin Email"
+            value={email}
+            onChange={(e) =>
+              setEmail(e.target.value)
+            }
+            className="
+            w-full
+            bg-slate-100
+            rounded-xl
+            p-4
+            outline-none
+            mb-5
+            "
+          />
+
+          <div className="flex justify-between items-center mb-2">
+
+            <p className="text-xs font-bold uppercase text-slate-400">
+              Password
             </p>
 
-            <input
-              type="email"
-              placeholder="Admin Email"
-              value={email}
-              onChange={(e) =>
-                setEmail(e.target.value)
-              }
-              className="
-              w-full
-              bg-slate-100
-              rounded-2xl
-              p-5
-              outline-none
-              mb-6
-              "
-            />
+            <p className="text-pink-500 text-sm font-bold cursor-pointer">
+              FORGOT?
+            </p>
 
-            <div className="flex justify-between items-center mb-2">
+          </div>
 
-              <p className="text-xs font-bold uppercase text-slate-400">
-                Password
-              </p>
+          <input
+            type="password"
+            placeholder="Admin Password"
+            value={password}
+            onChange={(e) =>
+              setPassword(e.target.value)
+            }
+            className="
+            w-full
+            bg-slate-100
+            rounded-xl
+            p-4
+            outline-none
+            mb-6
+            "
+          />
 
-              <p className="text-pink-500 text-sm font-bold cursor-pointer">
-                FORGOT?
-              </p>
+          <button
+            onClick={handleLogin}
+            className="
+            w-full
+            bg-black
+            text-white
+            py-4
+            rounded-xl
+            font-bold
+            tracking-[2px]
+            hover:bg-gray-900
+            transition
+            "
+          >
+            ENTER ADMIN PANEL →
+          </button>
 
-            </div>
+          <div className="text-center mt-8">
 
-            <input
-              type="password"
-              placeholder="Admin Password"
-              value={password}
-              onChange={(e) =>
-                setPassword(e.target.value)
-              }
-              className="
-              w-full
-              bg-slate-100
-              rounded-2xl
-              p-5
-              outline-none
-              mb-8
-              "
-            />
+            <p className="font-semibold">
+              Admin Panel
+            </p>
 
-            <button
-              onClick={handleLogin}
-              className="
-              w-full
-              bg-black
-              text-white
-              py-5
-              rounded-2xl
-              font-bold
-              tracking-[4px]
-              hover:bg-gray-900
-              transition
-              "
-            >
-              ENTER BOUTIQUE →
-            </button>
-
-            <div className="text-center mt-12">
-
-              <p className="font-semibold text-lg">
-                Admin Panel
-              </p>
-
-              <div className="w-32 h-1 bg-pink-500 mx-auto mt-2 rounded-full"></div>
-
-            </div>
+            <div className="w-24 h-1 bg-pink-500 mx-auto mt-2 rounded-full"></div>
 
           </div>
 
