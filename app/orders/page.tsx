@@ -49,21 +49,33 @@ export default function OrdersPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
+    <div className="min-h-screen bg-gray-100 px-4 py-6 md:p-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-5xl font-bold mb-10">My Orders</h1>
+
+        <h1 className="text-3xl md:text-5xl font-bold mb-8 md:mb-10">
+          My Orders
+        </h1>
 
         {orders.length === 0 ? (
-          <div className="bg-white rounded-xl shadow p-10">
-            <p className="text-xl">No Orders Found 📦</p>
+          <div className="bg-white rounded-xl shadow p-6 md:p-10">
+            <p className="text-lg md:text-xl">
+              No Orders Found 📦
+            </p>
           </div>
         ) : (
           <div className="grid gap-6">
+
             {orders.map((order) => (
-              <div key={order.id} className="bg-white rounded-xl shadow p-6">
-                <div className="flex justify-between items-center mb-5">
+              <div
+                key={order.id}
+                className="bg-white rounded-xl shadow p-4 md:p-6"
+              >
+                <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-5">
+
                   <div>
-                    <h2 className="text-2xl font-bold">Order Details</h2>
+                    <h2 className="text-xl md:text-2xl font-bold">
+                      Order Details
+                    </h2>
 
                     <p className="text-gray-500 text-sm">
                       Track your order status and delivery details
@@ -71,8 +83,8 @@ export default function OrdersPage() {
                   </div>
 
                   <span
-                    className={`px-4 py-2 rounded-lg ${getStatusColor(
-                      order.status,
+                    className={`px-4 py-2 rounded-lg text-center w-fit ${getStatusColor(
+                      order.status
                     )}`}
                   >
                     {order.status}
@@ -80,12 +92,13 @@ export default function OrdersPage() {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div>
+
+                  <div className="space-y-2">
                     <p>
                       <strong>Name:</strong> {order.user_name}
                     </p>
 
-                    <p>
+                    <p className="break-all">
                       <strong>Email:</strong> {order.email}
                     </p>
 
@@ -94,7 +107,7 @@ export default function OrdersPage() {
                     </p>
                   </div>
 
-                  <div>
+                  <div className="space-y-2">
                     <p>
                       <strong>Total:</strong> ₹{order.total_amount}
                     </p>
@@ -108,26 +121,34 @@ export default function OrdersPage() {
                               day: "2-digit",
                               month: "long",
                               year: "numeric",
-                            },
+                            }
                           )
                         : "N/A"}
                     </p>
                   </div>
+
                 </div>
 
-                <div className="mt-4">
+                <div className="mt-5">
                   <strong>Delivery Address:</strong>
 
-                  <p className="text-gray-600 mt-2">{order.address}</p>
+                  <p className="text-gray-600 mt-2 break-words">
+                    {order.address}
+                  </p>
                 </div>
+
               </div>
             ))}
+
           </div>
         )}
 
-        <div className="bg-white rounded-xl shadow p-6 mt-6">
-          <h2 className="text-2xl font-bold">Total Orders: {orders.length}</h2>
+        <div className="bg-white rounded-xl shadow p-5 md:p-6 mt-6">
+          <h2 className="text-xl md:text-2xl font-bold">
+            Total Orders: {orders.length}
+          </h2>
         </div>
+
       </div>
     </div>
   );
