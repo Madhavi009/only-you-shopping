@@ -31,31 +31,31 @@ export default function TrendingProducts() {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20">
+    <section className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20">
 
-      <div className="flex justify-between items-center mb-10">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 mb-10">
 
         <div>
-          <p className="text-pink-500 uppercase tracking-[5px] text-sm font-semibold">
+          <p className="text-pink-500 uppercase tracking-[3px] md:tracking-[5px] text-xs md:text-sm font-semibold">
             Trending Collection
           </p>
 
-          <h2 className="text-4xl font-bold mt-2">
+          <h2 className="text-3xl md:text-5xl font-bold mt-2">
             Featured Products
           </h2>
 
-          <p className="text-gray-500 mt-2">
+          <p className="text-gray-500 mt-2 text-sm md:text-base">
             Most loved products by our customers
           </p>
         </div>
 
-        <button className="border px-6 py-3 rounded-xl hover:bg-black hover:text-white transition">
+        <button className="border px-5 py-3 rounded-xl hover:bg-black hover:text-white transition w-full md:w-auto">
           View All
         </button>
 
       </div>
 
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
         {products.map((product) => (
 
@@ -81,7 +81,7 @@ export default function TrendingProducts() {
                 alt={product.title}
                 className="
                 w-full
-                h-72
+                h-60 md:h-72
                 object-cover
                 group-hover:scale-110
                 transition
@@ -89,15 +89,15 @@ export default function TrendingProducts() {
                 "
               />
 
-              <div className="absolute top-2 left-2 bg-red-400 text-white px-0 next-error-h1py-0 rounded-full text-xs font-bold">
+              <div className="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
                 25% OFF
               </div>
 
               <button
                 className="
                 absolute
-                top-4
-                right-4
+                top-3
+                right-3
                 bg-white
                 w-10
                 h-10
@@ -129,7 +129,7 @@ export default function TrendingProducts() {
 
               <div className="flex items-center gap-3 mt-4">
 
-                <p className="text-green-600 font-bold text-1xl">
+                <p className="text-green-600 font-bold text-xl">
                   ₹{product.price}
                 </p>
 
@@ -150,4 +150,3 @@ export default function TrendingProducts() {
     </section>
   );
 }
-
