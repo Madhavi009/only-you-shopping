@@ -1,8 +1,8 @@
-export default function footer() {
+export default function Footer() {
   return (
     <footer className="bg-slate-900 text-white mt-20">
 
-      <div className="max-w-7xl mx-auto px-8 py-12 grid md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
         {/* Brand */}
         <div>
@@ -10,7 +10,7 @@ export default function footer() {
             Only You
           </h2>
 
-          <p className="text-gray-300">
+          <p className="text-gray-300 leading-relaxed">
             Your favorite shopping destination for
             Fashion, Beauty, Electronics and Lifestyle
             products.
@@ -19,11 +19,11 @@ export default function footer() {
 
         {/* Quick Links */}
         <div>
-          <h3 className="font-bold text-xl mb-3">
+          <h3 className="font-bold text-xl mb-4">
             Quick Links
           </h3>
 
-          <div className="space-y-2">
+          <div className="space-y-3">
             <a href="/" className="block hover:text-gray-300">
               Home
             </a>
@@ -44,11 +44,11 @@ export default function footer() {
 
         {/* Support */}
         <div>
-          <h3 className="font-bold text-xl mb-3">
+          <h3 className="font-bold text-xl mb-4">
             Support
           </h3>
 
-          <div className="space-y-2">
+          <div className="space-y-3">
             <p>Contact Us</p>
             <p>FAQ</p>
             <p>Shipping Policy</p>
@@ -58,11 +58,11 @@ export default function footer() {
 
         {/* Contact */}
         <div>
-          <h3 className="font-bold text-xl mb-3">
+          <h3 className="font-bold text-xl mb-4">
             Contact
           </h3>
 
-          <div className="space-y-2">
+          <div className="space-y-3">
             <p>📧 support@onlyyou.com</p>
             <p>📞 +91 9876543210</p>
             <p>📍 Hyderabad, India</p>
@@ -71,7 +71,7 @@ export default function footer() {
 
       </div>
 
-      <div className="border-t border-gray-700 text-center py-4 text-gray-400">
+      <div className="border-t border-gray-700 text-center py-5 text-sm text-gray-400">
         © 2026 Only You. All Rights Reserved.
       </div>
 
