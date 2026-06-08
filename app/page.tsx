@@ -26,19 +26,20 @@ export default function HomePage() {
 
   return (
     <main className="bg-gray-50">
-      <section
-  className="relative min-h-[650px] md:min-h-screen flex items-center"
+      {/* HERO SECTION */}
+<section
+  className="relative min-h-[650px] md:min-h-screen flex items-start pt-16 md:pt-28"
   style={{
     backgroundImage: "url('/jtt.jpg')",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "center bottom",
+    backgroundPosition: "center 80%",
     backgroundSize: "contain",
   }}
 >
   <div className="absolute inset-0 bg-black/5"></div>
 
   <div className="relative z-10 w-full">
-    <div className="max-w-7xl mx-auto px-6">
+    <div className="max-w-7xl mx-auto px-6 pt-6 md:pt-0">
 
       <div className="max-w-xl">
 
@@ -75,7 +76,6 @@ export default function HomePage() {
     </div>
   </div>
 </section>
-
       {/* CATEGORIES */}
       <section className="max-w-7xl mx-auto px-6 py-16">
         <h2 className="text-3xl md:text-4xl font-bold text-center">
