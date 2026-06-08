@@ -67,39 +67,38 @@ export default function ProductsPage() {
     <div className="space-y-8">
 
       {/* HERO */}
-      <div className="bg-gradient-to-r from-[#081534] via-[#132a56] to-[#30486d] rounded-3xl p-10 text-white shadow-xl flex justify-between items-center">
+   <div className="bg-gradient-to-r from-[#081534] via-[#132a56] to-[#30486d] rounded-3xl p-6 md:p-10 text-white shadow-xl flex flex-col md:flex-row justify-between items-center gap-6">
 
-        <div>
-          <p className="tracking-[4px] text-pink-300 text-sm">
-            INVENTORY MANAGEMENT
-          </p>
+  <div>
+    <p className="tracking-[4px] text-pink-300 text-sm">
+      INVENTORY MANAGEMENT
+    </p>
 
-          <h1 className="text-6xl font-bold mt-2">
-            Products
-          </h1>
+    <h1 className="text-3xl md:text-6xl font-bold mt-2">
+      Products
+    </h1>
 
-          <p className="mt-3 text-gray-300 text-lg">
-            Manage inventory, stock levels and product catalog
-          </p>
-        </div>
+    <p className="mt-3 text-gray-300 text-sm md:text-lg">
+      Manage inventory, stock levels and product catalog
+    </p>
+  </div>
 
-        <a href="/admin/products/add">
-          <button className="bg-white text-black font-bold px-8 py-4 rounded-2xl shadow-lg hover:scale-105 transition">
-            + Add Product
-          </button>
-        </a>
+  <a href="/admin/products/add" className="w-full md:w-auto">
+    <button className="w-full md:w-auto bg-white text-black font-bold px-6 py-3 md:px-8 md:py-4 rounded-2xl shadow-lg hover:scale-105 transition">
+      + Add Product
+    </button>
+  </a>
 
-      </div>
+</div>
 
       {/* STATS */}
-      <div className="grid md:grid-cols-4 gap-6">
-
+<div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white rounded-3xl shadow-lg p-6">
           <p className="text-gray-500">
             Total Products
           </p>
 
-          <h2 className="text-5xl font-bold mt-3">
+          <h2 className="text-2xl md:text-5xl font-bold mt-3">
             {products.length}
           </h2>
         </div>
@@ -109,7 +108,7 @@ export default function ProductsPage() {
             Categories
           </p>
 
-          <h2 className="text-5xl font-bold mt-3">
+          <h2 className="text-2xl md:text-5xl font-bold mt-3">
             {categories.length}
           </h2>
         </div>
@@ -119,7 +118,7 @@ export default function ProductsPage() {
             Sub Categories
           </p>
 
-          <h2 className="text-5xl font-bold mt-3">
+          <h2 className="text-2xl md:text-5xl font-bold mt-3">
             {subCategories.length}
           </h2>
         </div>
@@ -156,18 +155,16 @@ export default function ProductsPage() {
 
     <div
       key={product.id}
-      className="bg-white rounded-3xl shadow-lg p-6 flex gap-6 items-center hover:shadow-xl transition"
-    >
+className="bg-white rounded-3xl shadow-lg p-4 md:p-6 flex flex-col md:flex-row gap-6 items-center hover:shadow-xl transition"    >
 
       <img
         src={product.image}
         alt={product.title}
-        className="w-40 h-40 object-cover rounded-2xl"
-      />
+className="w-full md:w-40 h-56 md:h-40 object-cover rounded-2xl"      />
 
       <div className="flex-1">
 
-        <h2 className="text-3xl font-bold">
+        <h2 className="text-xl md:text-2xl font-bold">
           {product.title}
         </h2>
 
@@ -175,48 +172,48 @@ export default function ProductsPage() {
           {product.description}
         </p>
 
-        <div className="flex gap-10 mt-4">
+       <div className="flex flex-wrap gap-6 mt-4">
 
-          <div>
-            <p className="text-gray-500">
-              Price
-            </p>
+  <div>
+    <p className="text-gray-500">
+      Price
+    </p>
 
-            <p className="text-green-600 text-3xl font-bold">
-              ₹{product.price}
-            </p>
-          </div>
+    <p className="text-green-600 text-2xl md:text-3xl font-bold">
+      ₹{product.price}
+    </p>
+  </div>
 
-          <div>
-            <p className="text-gray-500">
-              Stock
-            </p>
+  <div>
+    <p className="text-gray-500">
+      Stock
+    </p>
 
-            <p className="text-2xl font-bold">
-              {product.stock}
-            </p>
-          </div>
+    <p className="text-xl md:text-2xl font-bold">
+      {product.stock}
+    </p>
+  </div>
 
-        </div>
-
-      </div>
-
-      <div className="flex flex-col gap-3">
-
-        <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl">
-          Edit
-        </button>
-
-        <button
-          onClick={() =>
-            deleteProduct(product.id)
-          }
-          className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl"
-        >
-          Delete
-        </button>
+</div>
 
       </div>
+
+    <div className="flex flex-col gap-3">
+
+  <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl">
+    Edit
+  </button>
+
+  <button
+    onClick={() =>
+      deleteProduct(product.id)
+    }
+    className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl"
+  >
+    Delete
+  </button>
+
+</div>
 
     </div>
 

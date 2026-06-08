@@ -114,9 +114,9 @@ export default function ProductsPage() {
 }
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-10">
-      <div
-        className="relative rounded-[40px] overflow-hidden mb-12 h-[500px]"
+<div className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-10">     
+   <div
+       className="relative rounded-[30px] overflow-hidden mb-8 md:mb-12 h-[250px] md:h-[500px]"
         style={{
           backgroundImage: "url('/ld.jpg')",
           backgroundSize: "cover",
@@ -133,7 +133,7 @@ export default function ProductsPage() {
               Discover Products
             </h1>
 
-            <p className="text-white text-xl mt-6 max-w-3xl">
+            <p className="text-white text-sm md:text-xl mt-4 md:mt-6 max-w-3xl">
               Explore Fashion, Beauty, Electronics, Lifestyle and Trending
               Products from our premium collection.
             </p>
@@ -166,8 +166,7 @@ export default function ProductsPage() {
         />
       </div>
       {/* Products */}
-      <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-8">
-        {filteredProducts.map((product) => (
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">        {filteredProducts.map((product) => (
           <div
             key={product.id}
             className="
@@ -187,14 +186,14 @@ export default function ProductsPage() {
               <img
                 src={product.image}
                 alt={product.title}
-                className="
-        w-full
-        h-80
-        object-cover
-        group-hover:scale-110
-        transition-all
-        duration-700
-        "
+               className="
+w-full
+h-64 md:h-80
+object-cover
+group-hover:scale-110
+transition-all
+duration-700
+"
               />
 
               <div className="absolute top-4 left-4 bg-red-500 text-white px-4 py-1 rounded-full text-xs font-bold shadow">
@@ -264,19 +263,19 @@ export default function ProductsPage() {
 
   <button
     onClick={() => addToCart(product)}
-    className="
-    flex-1
-    bg-gradient-to-r
-    from-black
-    to-slate-800
-    text-white
-    py-3
-    rounded-2xl
-    text-sm
-    font-semibold
-    hover:scale-95
-    transition
-    "
+   className="
+flex-1
+bg-gradient-to-r
+from-black
+to-slate-800
+text-white
+py-3
+rounded-2xl
+text-xs md:text-sm
+font-semibold
+hover:scale-95
+transition
+"
   >
     Add To Cart
   </button>

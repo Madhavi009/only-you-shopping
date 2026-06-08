@@ -45,128 +45,166 @@ export default function DashboardPage() {
     setOrders(orderCount || 0);
     setUsers(userCount || 0);
   }
-  return (
-    <div className="w-full p-4 mt-2">
-      {/* PAGE TITLE */}
-      <div className="mb-4">
-        <h1 className="text-2xl font-bold text-slate-900">Dashboard</h1>
+ return (
+  <div className="w-full p-4 md:p-6">
 
-        <p className="text-sm text-gray-500 mt-1">Welcome to Admin Panel</p>
-      </div>
+    {/* PAGE TITLE */}
+    <div className="mb-6">
+      <h1 className="text-2xl md:text-4xl font-bold text-slate-900">
+        Dashboard
+      </h1>
 
-      {/* HERO SECTION */}
-      <div className="bg-gradient-to-r from-[#081534] via-[#10254d] to-[#203a6e] rounded-2xl p-6 text-white shadow-xl">
-        <div className="flex justify-between items-center">
-          <div>
-            <p className="uppercase tracking-[3px] text-pink-300 text-xs">
-              Command Center
-            </p>
+      <p className="text-sm md:text-base text-gray-500 mt-1">
+        Welcome to Admin Panel
+      </p>
+    </div>
 
-            <h1 className="text-xl font-bold mt-2">ONLY YOU LIFESTYLE</h1>
+    {/* HERO SECTION */}
+    <div className="bg-gradient-to-r from-[#081534] via-[#10254d] to-[#203a6e] rounded-3xl p-5 md:p-8 text-white shadow-xl">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>
+          <p className="uppercase tracking-[3px] text-pink-300 text-xs">
+            Command Center
+          </p>
 
-            <p className="text-gray-300 mt-2 text-sm">
-              Welcome back Administrator 👋
-            </p>
-          </div>
+          <h1 className="text-2xl md:text-4xl font-bold mt-2">
+            ONLY YOU LIFESTYLE
+          </h1>
 
-          <div className="hidden md:block text-5xl">📊</div>
-        </div>
-      </div>
-
-      {/* STATS */}
-
-      <div className="grid md:grid-cols-4 gap-6 mt-8">
-        <div className="bg-white p-6 rounded-3xl shadow-lg">
-          <p className="text-gray-500">Products</p>
-          <h2 className="text-3xl font-bold mt-3">{products}</h2>
+          <p className="text-gray-300 mt-2 text-sm md:text-base">
+            Welcome back Administrator 👋
+          </p>
         </div>
 
-        <div className="bg-white p-6 rounded-3xl shadow-lg">
-          <p className="text-gray-500">Categories</p>
-          <h2 className="text-3xl font-bold mt-3">{categories}</h2>
-        </div>
-        <div className="bg-white p-6 rounded-3xl shadow-lg">
-          <p className="text-gray-500">Orders</p>
-          <h2 className="text-3xl font-bold mt-3">{orders}</h2>
-        </div>
-
-        <div className="bg-white p-6 rounded-3xl shadow-lg">
-          <p className="text-gray-500">Users</p>
-          <h2 className="text-3xl font-bold mt-3">{users}</h2>
-        </div>
-      </div>
-
-      {/* QUICK ACTIONS */}
-
-      <div className="bg-white rounded-3xl shadow-lg p-8 mt-8">
-        <h2 className="text-2xl font-bold mb-6">Quick Actions</h2>
-
-        <div className="grid md:grid-cols-4 gap-4">
-          <a
-            href="/admin/products"
-            className="bg-black text-white p-5 rounded-2xl text-center"
-          >
-            📦 Products
-          </a>
-
-          <a
-            href="/admin/categories"
-            className="bg-blue-600 text-white p-5 rounded-2xl text-center"
-          >
-            📂 Categories
-          </a>
-
-          <a
-            href="/admin/orders"
-            className="bg-green-600 text-white p-5 rounded-2xl text-center"
-          >
-            🛒 Orders
-          </a>
-
-          <a
-            href="/admin/users"
-            className="bg-purple-600 text-white p-5 rounded-2xl text-center"
-          >
-            👥 Users
-          </a>
-        </div>
-      </div>
-
-      {/* OVERVIEW */}
-
-      <div className="grid md:grid-cols-2 gap-4 mt-6">
-        <div className="bg-white rounded-2xl shadow-lg p-5">
-          <h2 className="text-lg font-bold mb-3">Recent Activity</h2>
-
-          <div className="space-y-2">
-            <div className="p-3 bg-gray-100 rounded-lg text-sm">
-              New Order Received
-            </div>
-
-            <div className="p-3 bg-gray-100 rounded-lg text-sm">
-              Product Added
-            </div>
-
-            <div className="p-3 bg-gray-100 rounded-lg text-sm">
-              User Registered
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-[#081534] text-white rounded-3xl shadow-lg p-6">
-          <h2 className="text-lg font-bold mb-4">Store Overview</h2>
-
-          <div className="space-y-3 text-sm">
-            <p>📦 Total Products : {products}</p>
-
-            <p>📂 Total Categories : {categories}</p>
-
-            <p>🛒 Total Orders : {orders}</p>
-
-            <p>👥 Total Users : {users}</p>
-          </div>
+        <div className="text-5xl md:text-7xl">
+          📊
         </div>
       </div>
     </div>
-  );
+
+    {/* STATS */}
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+
+      <div className="bg-white p-5 rounded-3xl shadow-lg">
+        <p className="text-gray-500 text-sm">Products</p>
+        <h2 className="text-2xl md:text-4xl font-bold mt-2">
+          {products}
+        </h2>
+      </div>
+
+      <div className="bg-white p-5 rounded-3xl shadow-lg">
+        <p className="text-gray-500 text-sm">Categories</p>
+        <h2 className="text-2xl md:text-4xl font-bold mt-2">
+          {categories}
+        </h2>
+      </div>
+
+      <div className="bg-white p-5 rounded-3xl shadow-lg">
+        <p className="text-gray-500 text-sm">Orders</p>
+        <h2 className="text-2xl md:text-4xl font-bold mt-2">
+          {orders}
+        </h2>
+      </div>
+
+      <div className="bg-white p-5 rounded-3xl shadow-lg">
+        <p className="text-gray-500 text-sm">Users</p>
+        <h2 className="text-2xl md:text-4xl font-bold mt-2">
+          {users}
+        </h2>
+      </div>
+
+    </div>
+
+    {/* QUICK ACTIONS */}
+    <div className="bg-white rounded-3xl shadow-lg p-6 mt-8">
+
+      <h2 className="text-xl md:text-2xl font-bold mb-6">
+        Quick Actions
+      </h2>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+        <a
+          href="/admin/products"
+          className="bg-black text-white p-4 md:p-5 rounded-2xl text-center"
+        >
+          📦 Products
+        </a>
+
+        <a
+          href="/admin/categories"
+          className="bg-blue-600 text-white p-4 md:p-5 rounded-2xl text-center"
+        >
+          📂 Categories
+        </a>
+
+        <a
+          href="/admin/orders"
+          className="bg-green-600 text-white p-4 md:p-5 rounded-2xl text-center"
+        >
+          🛒 Orders
+        </a>
+
+        <a
+          href="/admin/users"
+          className="bg-purple-600 text-white p-4 md:p-5 rounded-2xl text-center"
+        >
+          👥 Users
+        </a>
+
+      </div>
+
+    </div>
+
+    {/* OVERVIEW */}
+    <div className="grid md:grid-cols-2 gap-6 mt-8">
+
+      <div className="bg-white rounded-3xl shadow-lg p-6">
+
+        <h2 className="text-xl font-bold mb-4">
+          Recent Activity
+        </h2>
+
+        <div className="space-y-3">
+
+          <div className="p-4 bg-gray-100 rounded-xl">
+            New Order Received
+          </div>
+
+          <div className="p-4 bg-gray-100 rounded-xl">
+            Product Added
+          </div>
+
+          <div className="p-4 bg-gray-100 rounded-xl">
+            User Registered
+          </div>
+
+        </div>
+
+      </div>
+
+      <div className="bg-[#081534] text-white rounded-3xl shadow-lg p-6">
+
+        <h2 className="text-xl font-bold mb-4">
+          Store Overview
+        </h2>
+
+        <div className="space-y-4">
+
+          <p>📦 Total Products : {products}</p>
+
+          <p>📂 Total Categories : {categories}</p>
+
+          <p>🛒 Total Orders : {orders}</p>
+
+          <p>👥 Total Users : {users}</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+);
 }
