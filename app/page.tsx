@@ -26,45 +26,44 @@ export default function HomePage() {
 
   return (
     <main className="bg-gray-50">
-      {/* HERO SECTION */}
-     <section
+      <section
   className="relative min-h-[650px] md:min-h-screen flex items-center"
   style={{
     backgroundImage: "url('/jtt.jpg')",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "center center",
+    backgroundPosition: "center bottom",
     backgroundSize: "contain",
   }}
 >
-  <div className="absolute inset-0 bg-black/10"></div>
+  <div className="absolute inset-0 bg-black/5"></div>
 
   <div className="relative z-10 w-full">
     <div className="max-w-7xl mx-auto px-6">
 
-      <div className="max-w-2xl">
+      <div className="max-w-xl">
 
-        <p className="uppercase tracking-[3px] text-black text-sm font-bold">
+        <p className="uppercase tracking-[3px] text-black text-xs md:text-sm font-bold">
           Premium Shopping Experience
         </p>
 
-        <h1 className="text-5xl md:text-7xl font-extrabold text-yellow-500 mt-4 leading-tight">
+        <h1 className="text-4xl md:text-7xl font-extrabold text-yellow-500 mt-4 leading-tight">
           Discover Your Style
         </h1>
 
-        <p className="text-black text-lg md:text-xl font-bold mt-4">
+        <p className="text-black text-base md:text-xl font-bold mt-4">
           Fashion • Beauty • Electronics • Lifestyle
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mt-8">
 
           <a href="/products">
-            <button className="bg-white text-black px-8 py-4 rounded-xl font-semibold shadow-lg hover:bg-gray-200 transition">
+            <button className="w-full sm:w-auto bg-white text-black px-8 py-4 rounded-xl font-semibold shadow-lg">
               Shop Now
             </button>
           </a>
 
           <a href="/categories">
-            <button className="bg-black text-white px-8 py-4 rounded-xl font-semibold hover:bg-gray-800 transition">
+            <button className="w-full sm:w-auto bg-black text-white px-8 py-4 rounded-xl font-semibold">
               Explore
             </button>
           </a>
