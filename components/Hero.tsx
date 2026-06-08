@@ -1,14 +1,24 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section
-      className="h-[500px] md:h-[700px] bg-cover bg-center flex items-center"
-      style={{
-        backgroundImage: "url('/image/fashion-banner.jpg')",
-      }}
-    >
-      <div className="bg-black/50 w-full h-full flex items-center">
+    <section className="relative min-h-[500px] md:min-h-[700px] flex items-center overflow-hidden">
+
+      {/* Background Image */}
+      <Image
+        src="/image/fashion-banner.jpg"
+        alt="Fashion Banner"
+        fill
+        priority
+        className="object-cover md:object-cover"
+      />
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/50" />
+
+      {/* Content */}
+      <div className="relative z-10 w-full">
         <div className="max-w-7xl mx-auto px-4 md:px-8 text-white">
 
           <p className="uppercase tracking-[4px] text-sm md:text-lg mb-3">
@@ -24,6 +34,7 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
+
             <a
               href="/products"
               className="bg-white text-black px-8 py-4 rounded-xl font-semibold text-center hover:bg-gray-200 transition"
@@ -37,10 +48,12 @@ export default function Hero() {
             >
               Explore
             </a>
+
           </div>
 
         </div>
       </div>
+
     </section>
   );
 }
