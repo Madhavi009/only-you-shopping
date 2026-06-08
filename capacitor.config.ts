@@ -4,7 +4,7 @@ const config: CapacitorConfig = {
   appId: 'com.onlyshopping.app',
   appName: 'only you shopping',
 
-  webDir: 'out',
+  webDir: '.next',
 
   server: {
     url: 'https://only-you-shopping.vercel.app',
