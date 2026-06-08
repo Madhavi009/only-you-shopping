@@ -52,7 +52,7 @@ export default function AdminLoginPage() {
             ×
           </button>
 
-          <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-8">
+          <h1 className="text-3xl md:text-3xl font-black text-slate-900 mb-8">
             SIGN IN
           </h1>
 
@@ -71,7 +71,8 @@ export default function AdminLoginPage() {
             w-full
             bg-slate-100
             rounded-xl
-            p-4
+            p-3
+            md:p-4
             outline-none
             mb-5
             "
@@ -100,7 +101,8 @@ export default function AdminLoginPage() {
             w-full
             bg-slate-100
             rounded-xl
-            p-4
+            p-3
+            md:p-4
             outline-none
             mb-6
             "
@@ -112,7 +114,8 @@ export default function AdminLoginPage() {
             w-full
             bg-black
             text-white
-            py-4
+            py-3
+            md:py-4
             rounded-xl
             font-bold
             tracking-[2px]

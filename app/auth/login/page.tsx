@@ -11,18 +11,15 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  async function loginUser(
-    e: React.FormEvent
-  ) {
+  async function loginUser(e: React.FormEvent) {
     e.preventDefault();
 
     setLoading(true);
 
-    const { error } =
-      await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
     setLoading(false);
 
@@ -32,54 +29,51 @@ export default function LoginPage() {
     }
 
     alert("Login Successful 🎉");
-
     router.push("/");
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-slate-200 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-slate-200 flex items-center justify-center p-3 md:p-6">
 
-      <div className="w-full max-w-6xl rounded-[40px] shadow-2xl overflow-hidden grid lg:grid-cols-2">
+      <div className="w-full max-w-6xl bg-white rounded-[30px] shadow-2xl overflow-hidden grid lg:grid-cols-2">
 
         {/* LEFT SIDE */}
-       <div
-  className="hidden lg:flex relative min-h-[650px] bg-cover bg-center items-center"
+        <div
+          className="hidden lg:flex relative min-h-[550px] bg-cover bg-center items-center"
           style={{
-            backgroundImage:
-              "url('/image.png')",
+            backgroundImage: "url('/image.png')",
           }}
         >
-          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-black/60"></div>
 
-          <div className="relative z-10 px-12 text-white">
+          <div className="relative z-10 px-10 text-white">
 
-            <p className="uppercase tracking-[8px] text-pink-300 text-sm font-semibold">
+            <p className="uppercase tracking-[6px] text-pink-300 text-xs font-semibold">
               Welcome Back
             </p>
 
-           <h1 className="text-4xl xl:text-5xl font-extrabold mt-4 leading-tight">
+            <h1 className="text-4xl xl:text-5xl font-extrabold mt-4">
               Only You
             </h1>
 
-           <p className="text-base xl:text-lg mt-5 text-gray-200">
-              Discover Fashion, Beauty,
-              Electronics and Lifestyle
-              Products.
+            <p className="text-base mt-5 text-gray-200 max-w-md">
+              Shop Premium Fashion, Beauty, Electronics and Lifestyle
+              Collections.
             </p>
 
           </div>
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="p-6 md:p-10 lg:p-12 flex flex-col justify-center">
+        <div className="p-6 md:p-8 lg:p-10 flex flex-col justify-center">
 
-          <div className="mb-10">
+          <div className="mb-6">
 
-           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900">
+            <h1 className="text-4xl font-extrabold text-slate-900">
               Sign In
             </h1>
 
-            <p className="text-gray-500 mt-3">
+            <p className="text-gray-500 mt-2 text-sm">
               Login to continue shopping
             </p>
 
@@ -87,7 +81,7 @@ export default function LoginPage() {
 
           <form
             onSubmit={loginUser}
-            className="space-y-5"
+            className="space-y-4"
           >
 
             <div>
@@ -100,14 +94,11 @@ export default function LoginPage() {
                 type="email"
                 placeholder="Enter Email"
                 value={email}
-                onChange={(e) =>
-                  setEmail(e.target.value)
-                }
+                onChange={(e) => setEmail(e.target.value)}
                 className="
                 w-full
                 bg-slate-100
                 p-3
-                md:p-4
                 rounded-xl
                 outline-none
                 border
@@ -129,7 +120,7 @@ export default function LoginPage() {
 
                 <button
                   type="button"
-                  className="text-pink-500 text-sm font-medium"
+                  className="text-pink-500 text-sm"
                 >
                   Forgot Password?
                 </button>
@@ -140,14 +131,11 @@ export default function LoginPage() {
                 type="password"
                 placeholder="Enter Password"
                 value={password}
-                onChange={(e) =>
-                  setPassword(e.target.value)
-                }
+                onChange={(e) => setPassword(e.target.value)}
                 className="
                 w-full
                 bg-slate-100
                 p-3
-                md:p-4
                 rounded-xl
                 outline-none
                 border
@@ -167,25 +155,20 @@ export default function LoginPage() {
               bg-black
               text-white
               py-3
-              md:py-4 
               rounded-xl
               font-bold
-              tracking-wide
               hover:bg-gray-900
               transition
               "
             >
-              {loading
-                ? "Signing In..."
-                : "LOGIN NOW"}
+              {loading ? "Signing In..." : "LOGIN NOW"}
             </button>
 
           </form>
 
-          {/* REGISTER SECTION */}
-          <div className="mt-8 text-center">
+          <div className="mt-6 text-center">
 
-            <p className="text-gray-600">
+            <p className="text-gray-600 text-sm">
               Don't have an account?
             </p>
 
@@ -195,11 +178,6 @@ export default function LoginPage() {
             >
               Register Now
             </a>
-
-          </div>
-
-          {/* ADMIN LOGIN */}
-          <div className="mt-8 border-t pt-6 text-center">
 
           </div>
 
