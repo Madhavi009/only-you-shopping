@@ -17,7 +17,18 @@ export default function CheckoutPage() {
 
   useEffect(() => {
     fetchCartTotal();
+    loadUser();
   }, []);
+
+  async function loadUser() {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (user?.email) {
+      setEmail(user.email);
+    }
+  }
 
   async function fetchCartTotal() {
     const {
@@ -48,6 +59,11 @@ export default function CheckoutPage() {
       return;
     }
 
+    if (total === 0) {
+      alert("Your cart is empty");
+      return;
+    }
+
     setLoading(true);
 
     const {
@@ -64,7 +80,7 @@ export default function CheckoutPage() {
           phone,
           address,
           total_amount: total,
-          status: "Order Placed",
+          status: "Pending",
         },
       ]);
 
@@ -89,9 +105,9 @@ export default function CheckoutPage() {
   return (
     <div className="min-h-screen bg-gray-100 py-10 px-4">
 
-      <div className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+      <div className="max-w-2xl mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-lg">
 
-        <h1 className="text-4xl font-bold text-center mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">
           Checkout
         </h1>
 
@@ -113,11 +129,9 @@ export default function CheckoutPage() {
           <input
             type="email"
             placeholder="Email Address"
-            className="w-full border p-3 rounded-lg"
+            readOnly
+            className="w-full border p-3 rounded-lg bg-gray-100"
             value={email}
-            onChange={(e) =>
-              setEmail(e.target.value)
-            }
           />
 
           <input
@@ -154,8 +168,8 @@ export default function CheckoutPage() {
 
           <button
             type="submit"
-            disabled={loading}
-            className="w-full bg-[#081534] hover:bg-slate-800 text-white py-3 rounded-lg font-semibold"
+            disabled={loading || total === 0}
+            className="w-full bg-[#081534] hover:bg-slate-800 text-white py-3 rounded-lg font-semibold disabled:opacity-50"
           >
             {loading
               ? "Placing Order..."
