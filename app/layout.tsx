@@ -1,6 +1,12 @@
 import "./globals.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
 
+export const metadata = {
+  title: "Only You Shopping",
+  description: "Premium Shopping Experience",
+  manifest: "/manifest.json",
+};
+
 export default function RootLayout({
   children,
 }: {
