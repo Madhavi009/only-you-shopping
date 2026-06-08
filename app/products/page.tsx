@@ -94,48 +94,46 @@ export default function ProductsPage() {
   );
 
   async function shareProduct(product: any) {
-  const productUrl =
-    window.location.origin +
-    `/product/${product.id}`;
+    const productUrl = window.location.origin + `/product/${product.id}`;
 
-  if (navigator.share) {
-    await navigator.share({
-      title: product.title,
-      text: product.description,
-      url: productUrl,
-    });
-  } else {
-    await navigator.clipboard.writeText(
-      productUrl
-    );
+    if (navigator.share) {
+      await navigator.share({
+        title: product.title,
+        text: product.description,
+        url: productUrl,
+      });
+    } else {
+      await navigator.clipboard.writeText(productUrl);
 
-    alert("Product link copied 🔗");
+      alert("Product link copied 🔗");
+    }
   }
-}
 
   return (
-<div className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-10">     
-   <div
-       className="relative rounded-[30px] overflow-hidden mb-8 md:mb-12 h-[250px] md:h-[500px]"
-        style={{
-          backgroundImage: "url('/ld.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+    <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-10">
+      <div
+  className="relative rounded-[30px] overflow-hidden mb-8 md:mb-12 h-[280px] sm:h-[350px] md:h-[500px]"
+  style={{
+    backgroundImage: "url('/ld.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
         <div className="bg-gradient-to-r from-black/30 to-transparent h-full flex items-center">
-          <div className="px-12 md:px-20">
-            <p className="text-black-600 text-lg tracking-[8px] uppercase mb-4">
-              Premium Collection
+          <div className="px-6 md:px-20">
+            <p className="text-white text-xs md:text-lg tracking-[6px] uppercase mb-4 font-semibold">
+              ONLY YOU COLLECTION
             </p>
 
-            <h1 className="text-6xl md:text-7xl font-bold text-white">
-              Discover Products
+            <h1 className="text-4xl md:text-7xl font-bold text-white leading-tight">
+              Shop Your
+              <br />
+              Perfect Style
             </h1>
 
-            <p className="text-white text-sm md:text-xl mt-4 md:mt-6 max-w-3xl">
-              Explore Fashion, Beauty, Electronics, Lifestyle and Trending
-              Products from our premium collection.
+            <p className="text-white text-sm md:text-xl mt-4 md:mt-6 max-w-xl">
+              Discover premium fashion, beauty, electronics and lifestyle
+              products curated specially for you.
             </p>
           </div>
         </div>
@@ -166,7 +164,9 @@ export default function ProductsPage() {
         />
       </div>
       {/* Products */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">        {filteredProducts.map((product) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {" "}
+        {filteredProducts.map((product) => (
           <div
             key={product.id}
             className="
@@ -186,7 +186,7 @@ export default function ProductsPage() {
               <img
                 src={product.image}
                 alt={product.title}
-               className="
+                className="
 w-full
 h-64 md:h-80
 object-cover
@@ -199,9 +199,9 @@ duration-700
               <div className="absolute top-4 left-4 bg-red-500 text-white px-4 py-1 rounded-full text-xs font-bold shadow">
                 30% OFF
               </div>
-<button
-  onClick={() => addToWishlist(product)}
-  className="
+              <button
+                onClick={() => addToWishlist(product)}
+                className="
   absolute
   top-4
   right-4
@@ -210,9 +210,9 @@ duration-700
   transition-all
   duration-300
   "
->
-  ♥
-</button>
+              >
+                ♥
+              </button>
 
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500">
                 <button className="bg-white text-black px-5 py-2 rounded-full shadow-lg font-medium">
@@ -241,7 +241,7 @@ duration-700
               </p>
 
               <div className="flex items-center mt-3">
-          <span className="text-sm text-yellow-500">⭐⭐⭐⭐⭐</span>
+                <span className="text-sm text-yellow-500">⭐⭐⭐⭐⭐</span>
 
                 <span className="text-sm text-gray-500 ml-2">(4.9)</span>
               </div>
@@ -259,11 +259,10 @@ duration-700
               <p className="text-green-600 text-sm mt-1 font-medium">
                 🚚 Free Shipping
               </p>
-  <div className="flex gap-3 mt-6">
-
-  <button
-    onClick={() => addToCart(product)}
-   className="
+              <div className="flex gap-3 mt-6">
+                <button
+                  onClick={() => addToCart(product)}
+                  className="
 flex-1
 bg-gradient-to-r
 from-black
@@ -276,13 +275,13 @@ font-semibold
 hover:scale-95
 transition
 "
-  >
-    Add To Cart
-  </button>
+                >
+                  Add To Cart
+                </button>
 
-  <button
-    onClick={() => shareProduct(product)}
-    className="
+                <button
+                  onClick={() => shareProduct(product)}
+                  className="
     w-14
     flex
     items-center
@@ -295,9 +294,9 @@ transition
     hover:bg-blue-100
     transition
     "
-  >
-    🔗
-  </button>
+                >
+                  🔗
+                </button>
               </div>
             </div>
           </div>
