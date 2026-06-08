@@ -112,12 +112,11 @@ export default function CategoriesPage() {
   return (
     <div className="min-h-screen bg-gray-50">
 
-      <div className="max-w-7xl mx-auto p-6 flex gap-6">
+      <div className="max-w-7xl mx-auto p-4 md:p-6 flex flex-col lg:flex-row gap-6">
 
         {/* LEFT SIDEBAR */}
-        <div className="w-80">
+        <div className="w-full lg:w-80">
 
-        Nee code 250+ lines undi. Complete professional version full ga paste chesthe chala pedda response avuthundi.
           {categories.map((cat) => (
             <div
               key={cat.id}
@@ -138,7 +137,7 @@ export default function CategoriesPage() {
               />
 
               <div>
-                <h3 className="font-bold text-xl">
+                <h3 className="font-bold text-lg md:text-xl">
                   {cat.name}
                 </h3>
 
@@ -152,7 +151,7 @@ export default function CategoriesPage() {
         </div>
 
         {/* RIGHT CONTENT */}
-        <div className="flex-1">
+        <div className="w-full lg:flex-1">
 
           {/* Banner */}
           {selectedCategory && (
@@ -160,21 +159,21 @@ export default function CategoriesPage() {
 
               <Image
                 src="/shop.jpg"
-                alt="Fashion"
+                alt="Category Banner"
                 width={1920}
                 height={1080}
-                className="w-full h-[350px] rounded-3xl object-cover"
+                className="w-full h-[220px] md:h-[350px] rounded-3xl object-cover"
               />
 
               <div className="absolute inset-0 bg-black/30 rounded-3xl flex items-center">
 
-                <div className="pl-16 text-white">
+                <div className="pl-6 md:pl-16 text-white">
 
-                  <p className="text-pink-300 tracking-widest mb-2">
+                  <p className="text-pink-300 tracking-widest text-xs md:text-base mb-2">
                     PREMIUM COLLECTION
                   </p>
 
-                  <h1 className="text-7xl font-bold">
+                  <h1 className="text-3xl md:text-7xl font-bold">
                     {selectedCategory.name}
                   </h1>
 
@@ -186,13 +185,14 @@ export default function CategoriesPage() {
           )}
 
           {/* PRODUCTS */}
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             {products.map((product) => (
               <div
                 key={product.id}
-                className="bg-white rounded-3xl shadow overflow-hidden"
+                className="bg-white rounded-3xl shadow overflow-hidden hover:shadow-xl transition"
               >
+
                 <img
                   src={product.image}
                   alt={product.title}
@@ -201,11 +201,11 @@ export default function CategoriesPage() {
 
                 <div className="p-5">
 
-                  <h2 className="text-2xl font-bold">
+                  <h2 className="text-xl md:text-2xl font-bold">
                     {product.title}
                   </h2>
 
-                  <p className="text-gray-500 mt-2">
+                  <p className="text-gray-500 mt-2 line-clamp-2">
                     {product.description}
                   </p>
 
@@ -213,24 +213,20 @@ export default function CategoriesPage() {
                     ₹{product.price}
                   </p>
 
-                  <div className="flex gap-2 mt-4">
+                  <div className="flex flex-col sm:flex-row gap-2 mt-4">
 
                     <button
-                      onClick={() =>
-                        addToCart(product)
-                      }
-                      className="bg-slate-900 text-white px-4 py-2 rounded-xl"
+                      onClick={() => addToCart(product)}
+                      className="bg-slate-900 text-white px-4 py-2 rounded-xl hover:bg-black"
                     >
                       Add To Cart
                     </button>
 
                     <button
-                      onClick={() =>
-                        addToWishlist(product)
-                      }
-                      className="bg-pink-500 text-white px-4 py-2 rounded-xl"
+                      onClick={() => addToWishlist(product)}
+                      className="bg-pink-500 text-white px-4 py-2 rounded-xl hover:bg-pink-600"
                     >
-                      ❤️
+                      ❤️ Wishlist
                     </button>
 
                   </div>
