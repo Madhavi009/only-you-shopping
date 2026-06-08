@@ -12,12 +12,12 @@ export default function OrderSuccessPage() {
           Thank You For Shopping With Us
         </p>
 
-        <Link
+        <a
           href="/"
           className="bg-black text-white px-6 py-3 rounded"
         >
           Continue Shopping
-        </Link>
+        </a>
       </div>
     </div>
   );

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">only you shopping</string>
+    <string name="title_activity_main">only you shopping</string>
+    <string name="package_name">com.onlyshopping.app</string>
+    <string name="custom_url_scheme">com.onlyshopping.app</string>
+</resources>
