@@ -27,9 +27,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Sync Capacitor
-        run: npx cap sync android
-
       - name: Build APK
         run: |
           cd android
