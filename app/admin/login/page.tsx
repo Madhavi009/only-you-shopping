@@ -33,7 +33,7 @@ export default function AdminLoginPage() {
           <div className="absolute inset-0 bg-black/40"></div>
 
           <div className="absolute top-10 left-10 z-10">
-            <h1 className="text-white text-5xl font-black leading-tight">
+            <h1 className="text-white text-3xl font-black leading-tight">
               THE
               <br />
               <span className="text-pink-500">
@@ -52,7 +52,7 @@ export default function AdminLoginPage() {
             ×
           </button>
 
-          <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-8">
+          <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-8">
             SIGN IN
           </h1>
 
