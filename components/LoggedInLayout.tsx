@@ -1,39 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
-import AdminSidebar from "./admin/AdminSidebar";
+import { usePathname } from "next/navigation";
+import Navbar from "./Navbar";
+import Footer from "./footer";
 
-export default function LoggedInLayout({
+export default function LayoutWrapper({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [user, setUser] = useState<any>(null);
+  const pathname = usePathname();
 
-  useEffect(() => {
-    checkUser();
-  }, []);
+  const hideLayout =
+    pathname === "/auth/login" ||
+    pathname === "/auth/register" ||
+    pathname.startsWith("/admin");
 
-  async function checkUser() {
-    const {
-      data: { session },
-    } = await supabase.auth.getSession();
-
-    setUser(session?.user || null);
-  }
-
-  if (!user) {
+  if (hideLayout) {
     return <>{children}</>;
   }
 
   return (
-    <div className="flex">
-      <AdminSidebar />
-
-      <main className="ml-64 flex-1">
-        {children}
-      </main>
-    </div>
+    <>
+      <Navbar />
+      {children}
+      <Footer />
+    </>
   );
 }

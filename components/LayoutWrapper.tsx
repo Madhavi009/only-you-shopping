@@ -12,7 +12,9 @@ export default function LayoutWrapper({
   const pathname = usePathname();
 
   const hideNavbarFooter =
-  pathname.startsWith("/admin");
+    pathname.startsWith("/admin") ||
+    pathname === "/auth/login" ||
+    pathname === "/auth/register";
 
   return (
     <>
