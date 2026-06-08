@@ -27,54 +27,55 @@ export default function HomePage() {
   return (
     <main className="bg-gray-50">
       {/* HERO SECTION */}
-      <section
-        className="relative h-[100vh] bg-cover bg-right"
-        style={{
-          backgroundImage: "url('/jtt.jpg')",
-          backgroundPosition: "100%  right",
-          backgroundSize: "right",
-        }}
-      >
-        <div className="relative z-10 h-full flex items-start pt-28">
+     <section
+  className="relative min-h-[650px] md:min-h-screen flex items-center"
+  style={{
+    backgroundImage: "url('/jtt.jpg')",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center center",
+    backgroundSize: "contain",
+  }}
+>
+  <div className="absolute inset-0 bg-black/10"></div>
 
-  <div className="max-w-7xl mx-auto px-6 w-full">
+  <div className="relative z-10 w-full">
+    <div className="max-w-7xl mx-auto px-6">
 
-    <div className="max-w-2xl">
+      <div className="max-w-2xl">
 
-      <p className="uppercase tracking-[3px] text-black text-sm font-bold">
-        Premium Shopping Experience
-      </p>
+        <p className="uppercase tracking-[3px] text-black text-sm font-bold">
+          Premium Shopping Experience
+        </p>
 
-      <h1 className="text-6xl md:text-5xl font-extrabold text-yellow-500 mt-4 leading-tight">
-        Discover Your Style
-      </h1>
+        <h1 className="text-5xl md:text-7xl font-extrabold text-yellow-500 mt-4 leading-tight">
+          Discover Your Style
+        </h1>
 
-      <p className="text-black text-1xl font-bold mt-4">
-        Fashion • Beauty • Electronics • Lifestyle
-      </p>
+        <p className="text-black text-lg md:text-xl font-bold mt-4">
+          Fashion • Beauty • Electronics • Lifestyle
+        </p>
 
-      <div className="flex gap-4 mt-8">
+        <div className="flex flex-col sm:flex-row gap-4 mt-8">
 
-        <a href="/products">
-          <button className="bg-white text-black px-8 py-3 rounded-xl font-semibold shadow-lg hover:bg-gray-200 transition">
-            Shop Now
-          </button>
-        </a>
+          <a href="/products">
+            <button className="bg-white text-black px-8 py-4 rounded-xl font-semibold shadow-lg hover:bg-gray-200 transition">
+              Shop Now
+            </button>
+          </a>
 
-        <a href="/categories">
-          <button className="bg-black text-white px-8 py-3 rounded-xl font-semibold hover:bg-gray-800 transition">
-            Explore
-          </button>
-        </a>
+          <a href="/categories">
+            <button className="bg-black text-white px-8 py-4 rounded-xl font-semibold hover:bg-gray-800 transition">
+              Explore
+            </button>
+          </a>
+
+        </div>
 
       </div>
 
     </div>
-
   </div>
-
-</div>
-      </section>
+</section>
 
       {/* CATEGORIES */}
       <section className="max-w-7xl mx-auto px-6 py-16">
