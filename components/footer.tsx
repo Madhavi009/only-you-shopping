@@ -6,24 +6,23 @@ export default function Footer() {
 
         {/* Brand */}
         <div>
-          <h2 className="text-3xl font-bold mb-4">
-            Only You
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            ONLY YOU
           </h2>
 
-          <p className="text-gray-300 leading-relaxed">
-            Your favorite shopping destination for
-            Fashion, Beauty, Electronics and Lifestyle
-            products.
+          <p className="text-gray-300 text-sm md:text-base">
+            Your favorite shopping destination for Fashion,
+            Beauty, Electronics and Lifestyle products.
           </p>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h3 className="font-bold text-xl mb-4">
+          <h3 className="font-bold text-lg md:text-xl mb-3">
             Quick Links
           </h3>
 
-          <div className="space-y-3">
+          <div className="space-y-2">
             <a href="/" className="block hover:text-gray-300">
               Home
             </a>
@@ -44,11 +43,11 @@ export default function Footer() {
 
         {/* Support */}
         <div>
-          <h3 className="font-bold text-xl mb-4">
+          <h3 className="font-bold text-lg md:text-xl mb-3">
             Support
           </h3>
 
-          <div className="space-y-3">
+          <div className="space-y-2 text-sm md:text-base">
             <p>Contact Us</p>
             <p>FAQ</p>
             <p>Shipping Policy</p>
@@ -58,11 +57,11 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h3 className="font-bold text-xl mb-4">
+          <h3 className="font-bold text-lg md:text-xl mb-3">
             Contact
           </h3>
 
-          <div className="space-y-3">
+          <div className="space-y-2 text-sm md:text-base">
             <p>📧 support@onlyyou.com</p>
             <p>📞 +91 9876543210</p>
             <p>📍 Hyderabad, India</p>
@@ -71,8 +70,8 @@ export default function Footer() {
 
       </div>
 
-      <div className="border-t border-gray-700 text-center py-5 text-sm text-gray-400">
-        © 2026 Only You. All Rights Reserved.
+      <div className="border-t border-gray-700 text-center py-4 text-gray-400 text-sm">
+        © 2026 ONLY YOU. All Rights Reserved.
       </div>
 
     </footer>
