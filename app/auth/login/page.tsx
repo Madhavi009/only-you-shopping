@@ -39,11 +39,11 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-slate-200 flex items-center justify-center p-6">
 
-      <div className="w-full max-w-6xl bg-white rounded-[40px] shadow-2xl overflow-hidden grid lg:grid-cols-2">
+      <div className="w-full max-w-6xl rounded-[40px] shadow-2xl overflow-hidden grid lg:grid-cols-2">
 
         {/* LEFT SIDE */}
-        <div
-          className="hidden lg:flex relative bg-cover bg-center items-center"
+       <div
+  className="hidden lg:flex relative min-h-[650px] bg-cover bg-center items-center"
           style={{
             backgroundImage:
               "url('/image.png')",
@@ -57,11 +57,11 @@ export default function LoginPage() {
               Welcome Back
             </p>
 
-            <h1 className="text-6xl font-extrabold mt-4 leading-tight">
+           <h1 className="text-4xl xl:text-5xl font-extrabold mt-4 leading-tight">
               Only You
             </h1>
 
-            <p className="text-xl mt-6 text-gray-200">
+           <p className="text-base xl:text-lg mt-5 text-gray-200">
               Discover Fashion, Beauty,
               Electronics and Lifestyle
               Products.
@@ -71,11 +71,11 @@ export default function LoginPage() {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="p-8 md:p-14 flex flex-col justify-center">
+        <div className="p-6 md:p-10 lg:p-12 flex flex-col justify-center">
 
           <div className="mb-10">
 
-            <h1 className="text-5xl font-extrabold text-slate-900">
+           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900">
               Sign In
             </h1>
 
@@ -106,8 +106,9 @@ export default function LoginPage() {
                 className="
                 w-full
                 bg-slate-100
-                p-4
-                rounded-2xl
+                p-3
+                md:p-4
+                rounded-xl
                 outline-none
                 border
                 border-transparent
@@ -145,8 +146,9 @@ export default function LoginPage() {
                 className="
                 w-full
                 bg-slate-100
-                p-4
-                rounded-2xl
+                p-3
+                md:p-4
+                rounded-xl
                 outline-none
                 border
                 border-transparent
@@ -164,8 +166,9 @@ export default function LoginPage() {
               w-full
               bg-black
               text-white
-              py-4
-              rounded-2xl
+              py-3
+              md:py-4 
+              rounded-xl
               font-bold
               tracking-wide
               hover:bg-gray-900
