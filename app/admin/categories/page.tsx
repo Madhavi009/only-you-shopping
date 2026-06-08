@@ -31,10 +31,9 @@ export default function CategoriesPage() {
     try {
       const fileName = `${Date.now()}-${image.name}`;
 
-      const { error: uploadError } =
-        await supabase.storage
-          .from("category-images")
-          .upload(fileName, image);
+      const { error: uploadError } = await supabase.storage
+        .from("category-images")
+        .upload(fileName, image);
 
       if (uploadError) {
         alert(uploadError.message);
@@ -90,30 +89,41 @@ export default function CategoriesPage() {
   return (
     <div className="space-y-6">
 
-      <div>
-        <h1 className="text-4xl font-bold">
+      {/* HERO */}
+      <div className="bg-gradient-to-r from-[#081534] via-[#132a56] to-[#30486d] rounded-3xl p-6 md:p-10 text-white shadow-xl">
+
+        <p className="tracking-[4px] text-pink-300 text-sm">
+          CATEGORY MANAGEMENT
+        </p>
+
+        <h1 className="text-3xl md:text-5xl font-bold mt-2">
           Categories
         </h1>
 
-        <p className="text-gray-500 mt-2">
-          Manage Categories
+        <p className="text-gray-300 mt-2 text-sm md:text-base">
+          Manage Categories & Collections
         </p>
+
       </div>
 
-      <div className="bg-white p-6 rounded-xl shadow">
-        <h2 className="text-2xl font-bold">
+      {/* STATS */}
+      <div className="bg-white p-4 md:p-6 rounded-2xl shadow-lg">
+
+        <h2 className="text-xl md:text-2xl font-bold">
           Total Categories: {categories.length}
         </h2>
+
       </div>
 
-      <div className="bg-white p-6 rounded-xl shadow flex flex-wrap gap-4">
+      {/* ADD CATEGORY */}
+      <div className="bg-white p-4 md:p-6 rounded-2xl shadow-lg flex flex-col md:flex-row flex-wrap gap-4">
 
         <input
           type="text"
           placeholder="Category Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="border p-3 rounded-lg"
+          className="w-full md:flex-1 border p-3 rounded-lg"
         />
 
         <input
@@ -121,12 +131,12 @@ export default function CategoriesPage() {
           onChange={(e) =>
             setImage(e.target.files?.[0] || null)
           }
-          className="border p-3 rounded-lg"
+          className="w-full md:w-auto border p-3 rounded-lg"
         />
 
         <button
           onClick={addCategory}
-          className="bg-black text-white px-6 py-3 rounded-lg"
+          className="w-full md:w-auto bg-black text-white px-6 py-3 rounded-lg"
         >
           Add Category
         </button>
@@ -141,19 +151,28 @@ export default function CategoriesPage() {
 
       </div>
 
-      <input
-        type="text"
-        placeholder="Search Category..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="w-full border p-3 rounded-lg"
-      />
+      {/* SEARCH */}
+      <div className="bg-white p-4 rounded-2xl shadow-lg">
 
-      <div className="bg-white rounded-xl shadow overflow-auto">
+        <input
+          type="text"
+          placeholder="🔍 Search Category..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full border p-3 rounded-xl"
+        />
 
-        <table className="w-full">
+      </div>
+
+      {/* TABLE */}
+      <div className="bg-white rounded-2xl shadow-lg overflow-x-auto">
+
+        <table className="w-full min-w-[600px]">
+
           <thead>
+
             <tr className="border-b bg-gray-50">
+
               <th className="p-4 text-left">
                 ID
               </th>
@@ -169,7 +188,9 @@ export default function CategoriesPage() {
               <th className="p-4 text-left">
                 Action
               </th>
+
             </tr>
+
           </thead>
 
           <tbody>
@@ -178,25 +199,27 @@ export default function CategoriesPage() {
               .filter((cat) =>
                 cat.name
                   .toLowerCase()
-                  .includes(
-                    search.toLowerCase()
-                  )
+                  .includes(search.toLowerCase())
               )
               .map((cat) => (
+
                 <tr
                   key={cat.id}
-                  className="border-b"
+                  className="border-b hover:bg-gray-50"
                 >
+
                   <td className="p-4">
                     {cat.id}
                   </td>
 
                   <td className="p-4">
+
                     <img
                       src={cat.image}
                       alt={cat.name}
-                      className="w-16 h-16 rounded-lg object-cover border"
+                      className="w-12 h-12 md:w-16 md:h-16 rounded-lg object-cover border"
                     />
+
                   </td>
 
                   <td className="p-4 font-medium">
@@ -204,30 +227,39 @@ export default function CategoriesPage() {
                   </td>
 
                   <td className="p-4">
+
                     <button
                       onClick={() =>
                         deleteCategory(cat.id)
                       }
-                      className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg"
+                      className="bg-red-500 hover:bg-red-600 text-white px-3 md:px-4 py-2 rounded-lg text-sm md:text-base"
                     >
                       Delete
                     </button>
+
                   </td>
+
                 </tr>
+
               ))}
 
             {categories.length === 0 && (
+
               <tr>
+
                 <td
                   colSpan={4}
-                  className="text-center p-10 text-gray-500"
+                  className="text-center p-6 md:p-10 text-gray-500"
                 >
                   No Categories Found
                 </td>
+
               </tr>
+
             )}
 
           </tbody>
+
         </table>
 
       </div>

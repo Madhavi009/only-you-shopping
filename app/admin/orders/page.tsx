@@ -73,27 +73,41 @@ export default function OrdersPage() {
   return (
     <div className="space-y-6">
 
-      <div>
-        <h1 className="text-4xl font-bold">
+      {/* HERO */}
+      <div className="bg-gradient-to-r from-[#081534] via-[#132a56] to-[#30486d] rounded-3xl p-6 md:p-10 text-white shadow-xl">
+
+        <p className="tracking-[4px] text-pink-300 text-sm">
+          ORDER MANAGEMENT
+        </p>
+
+        <h1 className="text-3xl md:text-5xl font-bold mt-2">
           Orders
         </h1>
 
-        <p className="text-gray-500 mt-2">
+        <p className="text-gray-300 mt-2 text-sm md:text-base">
           Manage all customer orders
         </p>
+
       </div>
 
-      <div className="bg-white p-6 rounded-xl shadow">
-        <h2 className="text-2xl font-bold">
+      {/* STATS */}
+      <div className="bg-white p-4 md:p-6 rounded-2xl shadow-lg">
+
+        <h2 className="text-xl md:text-2xl font-bold">
           Total Orders: {orders.length}
         </h2>
+
       </div>
 
-      <div className="bg-white rounded-xl shadow overflow-auto">
+      {/* TABLE */}
+      <div className="bg-white rounded-2xl shadow-lg overflow-x-auto">
 
-        <table className="w-full">
+        <table className="w-full min-w-[1200px]">
+
           <thead>
+
             <tr className="border-b bg-gray-50">
+
               <th className="p-4 text-left">
                 ID
               </th>
@@ -129,20 +143,25 @@ export default function OrdersPage() {
               <th className="p-4 text-left">
                 Action
               </th>
+
             </tr>
+
           </thead>
 
           <tbody>
+
             {orders.map((order) => (
+
               <tr
                 key={order.id}
-                className="border-b"
+                className="border-b hover:bg-gray-50"
               >
+
                 <td className="p-4">
                   #{order.id}
                 </td>
 
-                <td className="p-4">
+                <td className="p-4 font-medium">
                   {order.user_name}
                 </td>
 
@@ -158,7 +177,7 @@ export default function OrdersPage() {
                   {order.address}
                 </td>
 
-                <td className="p-4 font-bold">
+                <td className="p-4 font-bold text-green-600">
                   ₹{order.total_amount}
                 </td>
 
@@ -171,6 +190,7 @@ export default function OrdersPage() {
                 </td>
 
                 <td className="p-4">
+
                   <select
                     value={order.status}
                     onChange={(e) =>
@@ -179,7 +199,7 @@ export default function OrdersPage() {
                         e.target.value
                       )
                     }
-                    className={`px-3 py-2 rounded-lg border ${getStatusColor(
+                    className={`px-3 py-2 rounded-lg border text-sm ${getStatusColor(
                       order.status
                     )}`}
                   >
@@ -202,33 +222,45 @@ export default function OrdersPage() {
                     <option value="Cancelled">
                       Cancelled
                     </option>
+
                   </select>
+
                 </td>
 
                 <td className="p-4">
+
                   <button
                     onClick={() =>
                       deleteOrder(order.id)
                     }
-                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg"
+                    className="bg-red-500 hover:bg-red-600 text-white px-3 md:px-4 py-2 rounded-lg text-sm"
                   >
                     Delete
                   </button>
+
                 </td>
+
               </tr>
+
             ))}
 
             {orders.length === 0 && (
+
               <tr>
+
                 <td
                   colSpan={9}
-                  className="text-center p-10 text-gray-500"
+                  className="text-center p-6 md:p-10 text-gray-500"
                 >
                   No Orders Found
                 </td>
+
               </tr>
+
             )}
+
           </tbody>
+
         </table>
 
       </div>

@@ -29,10 +29,12 @@ export default function SubCategoriesPage() {
   async function fetchSubCategories() {
     const { data } = await supabase
       .from("sub_categories")
-      .select(`
+      .select(
+        `
         *,
         categories(name)
-      `)
+      `
+      )
       .order("id", { ascending: false });
 
     setSubCategories(data || []);
@@ -116,32 +118,43 @@ export default function SubCategoriesPage() {
   return (
     <div className="space-y-6">
 
-      <div>
-        <h1 className="text-4xl font-bold">
+      {/* HERO */}
+      <div className="bg-gradient-to-r from-[#081534] via-[#132a56] to-[#30486d] rounded-3xl p-6 md:p-10 text-white shadow-xl">
+
+        <p className="tracking-[4px] text-pink-300 text-sm">
+          SUB CATEGORY MANAGEMENT
+        </p>
+
+        <h1 className="text-3xl md:text-5xl font-bold mt-2">
           Sub Categories
         </h1>
 
-        <p className="text-gray-500 mt-2">
-          Manage all sub categories
+        <p className="text-gray-300 mt-2 text-sm md:text-base">
+          Manage all sub categories and collections
         </p>
+
       </div>
 
-      <div className="bg-white p-6 rounded-xl shadow">
-        <h2 className="text-2xl font-bold">
+      {/* STATS */}
+      <div className="bg-white p-4 md:p-6 rounded-2xl shadow-lg">
+
+        <h2 className="text-xl md:text-2xl font-bold">
           Total Sub Categories: {subCategories.length}
         </h2>
+
       </div>
 
-      <div className="bg-white rounded-xl shadow p-6">
+      {/* ADD SUB CATEGORY */}
+      <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6">
 
-        <div className="grid md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
           <select
             value={categoryId}
             onChange={(e) =>
               setCategoryId(e.target.value)
             }
-            className="border p-3 rounded-lg"
+            className="w-full border p-3 rounded-lg"
           >
             <option value="">
               Select Category
@@ -164,7 +177,7 @@ export default function SubCategoriesPage() {
             onChange={(e) =>
               setName(e.target.value)
             }
-            className="border p-3 rounded-lg"
+            className="w-full border p-3 rounded-lg"
           />
 
           <input
@@ -174,12 +187,12 @@ export default function SubCategoriesPage() {
                 e.target.files?.[0] || null
               )
             }
-            className="border p-3 rounded-lg"
+            className="w-full border p-3 rounded-lg"
           />
 
           <button
             onClick={addSubCategory}
-            className="bg-slate-900 text-white rounded-lg px-5 py-3"
+            className="w-full bg-slate-900 text-white rounded-lg px-5 py-3"
           >
             Add Sub Category
           </button>
@@ -196,47 +209,75 @@ export default function SubCategoriesPage() {
 
       </div>
 
-      <input
-        type="text"
-        placeholder="Search Sub Category..."
-        value={search}
-        onChange={(e) =>
-          setSearch(e.target.value)
-        }
-        className="w-full border p-3 rounded-lg"
-      />
+      {/* SEARCH */}
+      <div className="bg-white rounded-2xl shadow-lg p-4">
 
-      <div className="bg-white rounded-xl shadow overflow-auto">
+        <input
+          type="text"
+          placeholder="🔍 Search Sub Category..."
+          value={search}
+          onChange={(e) =>
+            setSearch(e.target.value)
+          }
+          className="w-full border p-3 rounded-xl"
+        />
 
-        <table className="w-full">
+      </div>
+
+      {/* TABLE */}
+      <div className="bg-white rounded-2xl shadow-lg overflow-x-auto">
+
+        <table className="w-full min-w-[700px]">
 
           <thead>
+
             <tr className="border-b bg-gray-50">
-              <th className="p-4 text-left">ID</th>
-              <th className="p-4 text-left">Image</th>
-              <th className="p-4 text-left">Category</th>
-              <th className="p-4 text-left">Sub Category</th>
-              <th className="p-4 text-left">Action</th>
+
+              <th className="p-4 text-left">
+                ID
+              </th>
+
+              <th className="p-4 text-left">
+                Image
+              </th>
+
+              <th className="p-4 text-left">
+                Category
+              </th>
+
+              <th className="p-4 text-left">
+                Sub Category
+              </th>
+
+              <th className="p-4 text-left">
+                Action
+              </th>
+
             </tr>
+
           </thead>
 
           <tbody>
 
             {filteredSubCategories.map((sub) => (
+
               <tr
                 key={sub.id}
-                className="border-b"
+                className="border-b hover:bg-gray-50"
               >
+
                 <td className="p-4">
                   {sub.id}
                 </td>
 
                 <td className="p-4">
+
                   <img
                     src={sub.image}
                     alt={sub.name}
-                    className="w-16 h-16 rounded-lg object-cover border"
+                    className="w-12 h-12 md:w-16 md:h-16 rounded-lg object-cover border"
                   />
+
                 </td>
 
                 <td className="p-4">
@@ -248,27 +289,35 @@ export default function SubCategoriesPage() {
                 </td>
 
                 <td className="p-4">
+
                   <button
                     onClick={() =>
                       deleteSubCategory(sub.id)
                     }
-                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg"
+                    className="bg-red-500 hover:bg-red-600 text-white px-3 md:px-4 py-2 rounded-lg text-sm md:text-base"
                   >
                     Delete
                   </button>
+
                 </td>
+
               </tr>
+
             ))}
 
             {filteredSubCategories.length === 0 && (
+
               <tr>
+
                 <td
                   colSpan={5}
-                  className="text-center p-10 text-gray-500"
+                  className="text-center p-6 md:p-10 text-gray-500"
                 >
                   No Sub Categories Found
                 </td>
+
               </tr>
+
             )}
 
           </tbody>
