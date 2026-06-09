@@ -6,6 +6,15 @@ const config: CapacitorConfig = {
   server: {
     url: 'https://only-you-shopping.vercel.app',
     cleartext: true
+  },
+  plugins: {
+    SplashScreen: {
+      launchShowDuration: 3000,
+      launchAutoHide: true,
+      backgroundColor: "#FFFFFF",
+      androidScaleType: "CENTER_INSIDE",
+      showSpinner: false
+    }
   }
 };
 
