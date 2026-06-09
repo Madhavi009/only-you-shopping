@@ -1,4 +1,4 @@
-package com.onlyshopping.app;
+package com.onlyyoushopping.app;
 
 import com.getcapacitor.BridgeActivity;
 
